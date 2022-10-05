@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autor</title>
+</head>
+<body>
+    <div>
+        <h1>Libros favoritos de {{autor.nombre}}</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Titulos</th>
+                    <th># de páginas</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for libro in autor.libros_favoritos  %}
+                    <tr>
+                        <td>{{libro.titulo}}</td>
+                        <td>{{libro.num_paginas}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <form action="/guardar/favoritos" method="post">
+            <h1>Añadir libro a favoritos de {{autor.nombre}}</h1>
+            <input type="hidden" name="autor_id" value="{{autor.id}}">
+            <label for="libro">Libro:</label>
+            <select name="libro_id">
+                {% for libro in libros_no_favoritos %}
+                    <option value="{{libro.id}}">{{libro.titulo}}</option>
+                {% endfor%}
+            </select>
+            <input type="submit" value="Añadir libro favorito">
+        </form>
+    </div>
+
+    <a href="/">Home</a>
+</body>
+</html>

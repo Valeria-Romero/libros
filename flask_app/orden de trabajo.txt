@@ -1,0 +1,35 @@
+1. Abstraer la informacion que va a ir en la base de datos:
+    **Recomiendo primero escribirlo en un papel antes de hacer el modelo**
+    a. Revisar cuantas tablas son necesarias
+    b. Qué columnas hacen falta dentro de cada tabla (Esta información va homologada a lo que vaya dentro de cada modelo)
+    c. Revisar cual es el tipo de dato que va a ir en cada columna (Tipo INT, DATETIME, TEXT, VARCHAR)
+    ** Listo esto proceder a crear la base de datos y el modelo para hacer el forward engineer**
+    ** Recuerden guardar tanto el modelo como el script en una carpeta de script para subirlo con el resto del examen **
+
+2. Modelos
+    a. Crear un archivo de modelo por cada tabla en la base de datos que tenga su propia clase
+    En cada clase tenemos:
+    - Contructor (Debe llevar toda la misma información que lleve la tabla en la base de datos)
+    - Metodos de clase (Estos con los que tienen los query que conectan con la base de datos)
+    - Metodos estaticos (No llevan query, no modifican información, son para revisar información)
+
+3. Controlladores
+    a. La ruta que pone el usuario en el navegador 
+    b. por defecto las ruta son tipo GET
+    c. Cuando se hacen INSERT a la base datos, siempre tiene que ser tipo POST y estos siempre hacen un redirect al final
+    d. aquí se importa los redirect, render_template, request, session, etc y además se importan los modelos para poder trabajar con los métodos de clase
+
+4. Templates
+    a. Por cada ventana que muestre la plataforma tenemos que crear un template
+    b. la ruta que viene en la ventana de la plataforma, provee informacion importante de las rutas a usar en el controlador
+    c. Jinja siempre se va a utilizar para ciclos, mostrar información guardada en variables que se envian a traves del controlador
+    {{}} es para mostrar la información final
+    {%%} es para hacer algo con esa información antes por ejemplos ciclos y condicionales, siempre se deben cerrar luego de abrirla, por ejemplo {%endfor%} y {%endif%}
+    d. Hidden inputs ayudan a enviar información que el usuario no ve pero es necesaria para los querys
+
+5. Servidor
+    a. Recordar siempre importar los controladores
+
+** Config y __init__** Siempre se dejan tal cual, no hay que modificar esos archivos!
+** Pipfile podemos revisar cuales paquetes hemos instalado
+

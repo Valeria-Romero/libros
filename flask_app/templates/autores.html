@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autores</title>
+</head>
+<body>
+    <div>
+        <form action="/guardar/autor" method="post">
+            <h1>Nuevo autor</h1>
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre">
+            <input type="submit" value="Añadir autor">
+        </form>
+    </div>
+
+    <div>
+        <h1>Todos los autores:</h1>
+        {% for autor in autores %}
+            <p><a href="/autor/{{autor.id}}">{{autor.nombre}}</a></p>
+        {% endfor %}
+    </div>
+
+    <div>
+        <a href="/libros">Añadir libro</a>
+    </div>
+</body>
+</html>
